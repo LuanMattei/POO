@@ -1,0 +1,30 @@
+package ProjetoEmPOO.src.BankAccount.entities;
+/*Relação é um , uma Bussiness account é uma comentario .
+É uma extensão da conta  e especializa  a classe conta*/
+public class BusinessAccount extends Conta {
+  private Double loanLimit;
+
+  public BusinessAccount() {
+    super();
+  }
+  public BusinessAccount(Integer number, String holder, Double balance, Double loanLimit) {
+    super(number, holder, balance);
+    this.loanLimit = loanLimit;
+  }
+  public Double getLoanLimit() {
+    return loanLimit;
+  }
+  public void setLoanLimit(Double loanLimit) {
+    this.loanLimit = loanLimit;
+  }
+  public void loan(double amount){
+    if (amount <= loanLimit){
+    balance += loanLimit *amount;
+    }
+  }
+  @Override
+  public void withdraw(Double amount ){
+    super.withdraw(amount);
+    balance -= 2.0;
+  }
+}
